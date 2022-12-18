@@ -35,9 +35,9 @@ class GitSync:
                     _path = self.__folder_path+"/"+folder
                     _list = self.__find_all_folders_in_path(_path)
                     for _folder in _list:
-                        _zip_path = self.__zip_folder(_path, _folder)
-                        self.__s3_manager._sync_folder_zip(self.__folder_path, "/GitRepositories")
                         self.__delete_all_zip(_path)
+                        self.__zip_folder(_path, _folder)
+                        self.__s3_manager._sync_folder_zip(self.__folder_path, "/GitRepositories")
 
                 time.sleep(3600*24*30)
             except Exception as e:

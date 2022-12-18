@@ -63,7 +63,7 @@ class GitSync:
 
     def __zip_folder(self, _path, _folder):
         with zipfile.ZipFile(_path+"/"+_folder + '.zip', 'w') as zip:
-            for root, dirs, files in os.walk(_path):
+            for root, dirs, files in os.walk(_path+"/"+_folder):
                 for file in files:
                     full_path = os.path.join(root, file)
                     zip.write(full_path)

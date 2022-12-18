@@ -1,4 +1,4 @@
-FROM python3:alpine
+FROM python:3.8.5-alpine
 
 ARG aws_key
 ARG aws_secret

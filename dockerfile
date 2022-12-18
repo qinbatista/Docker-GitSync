@@ -6,6 +6,10 @@ ARG aws_secret
 ADD * /
 RUN ls
 
+#install curl
+RUN apt-get update
+RUN apt-get -y install curl
+
 #install python3 packages
 RUN pip3 install --upgrade pip
 RUN pip3 install -r /requirement

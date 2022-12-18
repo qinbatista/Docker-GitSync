@@ -8,7 +8,7 @@ RUN ls
 
 #install curl
 RUN apk update
-RUN apk -y install curl
+RUN apk install curl
 
 #install python3 packages
 RUN pip3 install --upgrade pip

@@ -6,11 +6,11 @@ ARG aws_secret
 ADD * /
 RUN ls
 
-#install curl
-RUN apk add --update curl wget
+#install aws-cli
+RUN apk add --update aws-cli
 
 #install python3 packages
-RUN pip3 install --upgrade pip aws-cli
+RUN pip3 install --upgrade pip
 RUN pip3 install -r /requirement
 
 #install AWS CLI
@@ -21,8 +21,6 @@ RUN aws configure set aws_access_key_id ${aws_key}
 RUN aws configure set aws_secret_access_key ${aws_secret}
 RUN aws configure set default.region us-west-2
 RUN aws configure set region us-west-2 --profile testing
-RUN echo ${google_key} > google_key.txt
-RUN echo ${google_secret} > google_secret.txt
 RUN echo ${aws_key} > aws_key.txt
 RUN echo ${aws_secret} > aws_secret.txt
 

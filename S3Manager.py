@@ -41,7 +41,6 @@ class S3Manager:
         )
         process.wait()
 
-        aws_result = []
         filesize = os.path.getsize(self.__fn_tderr)
         if filesize == 0:
             with open(self.__fn_stdout) as json_file:
@@ -52,7 +51,7 @@ class S3Manager:
         # clean cache files
         os.remove(self.__fn_stdout)
         os.remove(self.__fn_tderr)
-        # print(aws_result)
+        print(aws_result)
         self.__log(aws_result)
         return aws_result
 

@@ -1,4 +1,4 @@
-FROM debian:10-slim
+FROM python3:alpine
 
 ARG aws_key
 ARG aws_secret
@@ -7,7 +7,7 @@ ADD * /
 RUN ls
 RUN apt-get clean
 RUN apt-get update
-RUN apt-get -y install make gcc python3 unzip python3-pip curl ffmpeg rsync python3-distutils sudo git tar build-essential ssh aria2 screen vim wget curl proxychains locales
+RUN apt-get -y install python3-pip
 
 #install python3 packages
 RUN pip3 install --upgrade pip

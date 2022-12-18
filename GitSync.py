@@ -41,6 +41,7 @@ class GitSync:
                 time.sleep(3600*24*30)
             except Exception as e:
                 self.__log(f"[_sync_folder] failed:" + str(e))
+                print(f"[_sync_folder] failed:" + str(e))
                 return []
 
     def __find_all_folders_in_path(self, _path):

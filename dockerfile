@@ -15,7 +15,7 @@ RUN pip3 install -r /requirement
 
 
 #folder for GitRepositories
-VOLUME [ "/GitRepositories"]
+VOLUME [ "/GitRepositories","/download"]
 
 WORKDIR /root
 CMD  ["python3","/GitSync.py"]

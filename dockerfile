@@ -5,9 +5,6 @@ ARG aws_secret
 
 ADD * /
 RUN ls
-RUN apt-get clean
-RUN apt-get update
-RUN apt-get -y install python3-pip
 
 #install python3 packages
 RUN pip3 install --upgrade pip

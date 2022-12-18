@@ -36,8 +36,9 @@ class GitSync:
                     _list = self.__find_all_folders_in_path(_path)
                     for _folder in _list:
                         _zip_path = self.__zip_folder(_path, _folder)
-                        # self.__s3_manager._sync_folder_zip(self.__folder_path, "/GitRepositories")
-                        # os.remove(_zip_path)
+                        self.__s3_manager._sync_folder_zip(self.__folder_path, "/GitRepositories")
+                        self.__delete_all_zip(_path)
+
                 time.sleep(3600*24*30)
             except Exception as e:
                 self.__log(f"[_sync_folder] failed:" + str(e))
@@ -50,6 +51,14 @@ class GitSync:
         for entry in files_and_dirs:
             if os.path.isdir(_path+"/"+entry):
                 _folder_list.append(entry)
+        return _folder_list
+
+    def __delete_all_zip(self, _path):
+        _folder_list = []
+        files_and_dirs = os.listdir(_path)
+        for entry in files_and_dirs:
+            if entry.endswith('.zip'):
+                os.remove(os.path.join(_path, entry))
         return _folder_list
 
     def __zip_folder(self, _path, _folder):

@@ -36,5 +36,5 @@ jobs:
       - name: Push docker
         run: docker push qinbatista/gitsync
 
-      - name: Run docker
-        run: docker run qinbatista/gitsync
+      # - name: Run docker
+      #   run: docker run -v /:/GitRepositories qinbatista/gitsync
